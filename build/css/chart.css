@@ -1,0 +1,7 @@
+.back{
+    background: conic-gradient(
+    #9258D0 10deg 60deg,
+    #40EAAC 60deg 160deg,
+    #1CAAF6 160deg 360deg
+  );
+}

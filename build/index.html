@@ -12,33 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Montserrat&display=swap" rel="stylesheet">
 
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Month', 'Saucisse', 'Tomate', "crevette"],
-          ['JAN',  1000,      400, 223 ]
-          ['FEV',  1170,      460, 290 ]
-          ['MAR',  760,       112, 200]
-          ['AVR',  660,       420, 293 ]
-          ['MAI',  1030,      540, 390 ]
-          ['JUIN',  1050,     640, 490 ]
-        ]);
-
-        var options = {
-          title: 'Company Performance',
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-        chart.draw(data, options);
-      }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>Document</title>
 </head>
@@ -75,15 +49,19 @@
             <div class="w-full bg-[#925CCB] uppercase p-4 text-sm text-white items-start rounded"><p>Enregistrer un marchand Enregistrer </p></div>
 
             <!-- Tableau / Graph -->
-            <div class="grid grid-cols-3 my-10">
+            <div class="grid grid-cols-3 my-10 gap-5">
                 <div class="col-span-2">
-                     <div id="curve_chart" class="pl-3 pb-3"></div>
+                    <div class="uppercase p-1 text-xs text-gray-600 font-bold">Tendances de stock</div>
+                    <hr class="mx-1 w-[5%] h-[1.5px] bg-[#A8D2E8]">
+                    <div class="pl-5 h-72 py-5 bg-white shadow rounded-sm">
+                        <canvas id="myChart"></canvas>
+                    </div>
                 </div>
 
                 <div class="">
                     <div class="uppercase p-1 text-xs text-gray-600 font-bold">Top sorties</div>
                     <hr class="mx-1 w-[10%] h-[1.5px] bg-[#A8D2E8]">
-                    <div class="py-12 px-6 bg-white">
+                    <div class="h-72 flex flex-col gap-1 justify-center items-center bg-white shadow rounded-sm">
                         <div class="flex items-center gap-12">
                             <div class="w-40 h-40 flex items-center justify-center rounded-full back">
                                 <div class="w-32 h-32 bg-white rounded-full"></div>
@@ -94,7 +72,7 @@
                                 <div class="flex items-center gap-3"> <div class="w-3 h-3 rounded-full bg-[#40EAAC]"></div> <p>26%</p> </div>
                             </div>
                         </div>
-                        <div class="flex items-center justify-between text-xs text-gray-500 font-semibold">
+                        <div class="w-full px-5 flex items-center justify-between text-xs text-gray-500 font-semibold">
                             <div class="flex items-center gap-2"> <div class="w-3 h-3 rounded-full bg-[#1CAAF6]"></div> <p>Tomates</p> </div>
                             <div class="flex items-center gap-2"> <div class="w-3 h-3 rounded-full bg-[#9258D0]"></div> <p>Saucisse</p> </div>
                             <div class="flex items-center gap-2"> <div class="w-3 h-3 rounded-full bg-[#40EAAC]"></div> <p>Crevettes</p> </div>
@@ -105,22 +83,22 @@
 
             <!-- Pourcentages  -->
             <div class="w-full grid grid-cols-4 gap-4 text-xs">
-                <div class="p-4 bg-white">
+                <div class="p-4 bg-white rounded-sm shadow">
                     <div class="uppercase font-semibold text-gray-600">Tomate</div>
                     <hr class="my-[5px] w-[15%] h-[3px] bg-[#A8D2E8]">
                     <div class="px-14 pt-5 pb-10 text-5xl font-semibold text-gray-500">25%</div>
                 </div>
-                <div class="p-4 bg-white">
+                <div class="p-4 bg-white rounded-sm shadow">
                     <div class="uppercase font-semibold text-gray-600">Crevette</div>
                     <hr class="my-[5px] w-[15%] h-[3px] bg-[#A8D2E8]">
                     <div class="px-14 pt-5 pb-10 text-5xl font-semibold text-gray-500">33%</div>
                 </div>
-                <div class="p-4 bg-white">
+                <div class="p-4 bg-white rounded-sm shadow">
                     <div class="uppercase font-semibold text-gray-600">Saucisse</div>
                     <hr class="my-[5px] w-[15%] h-[3px] bg-[#A8D2E8]">
                     <div class="px-14 pt-5 pb-10 text-5xl font-semibold text-gray-500">45%</div>
                 </div>
-                <div class="p-4 bg-white">
+                <div class="p-4 bg-white rounded-sm shadow">
                     <div class="uppercase font-semibold text-gray-600">Commande en cours</div>
                     <hr class="my-[5px] w-[15%] h-[3px] bg-[#A8D2E9]">
                     <div class="px-14 pt-5 pb-10 text-5xl font-semibold text-gray-500">3%</div>
@@ -128,5 +106,102 @@
             </div>            
         </div>
     </div>
+
+    <script>
+        (async function() {
+        //data Saucisse
+        const data = [
+            { month: "JAN", count: 0 },
+            { month: "FEV", count: 80 },
+            { month: "MAR", count: 190 },
+            { month: "AVR", count: 120},
+            { month: "MAI", count: 250 },
+            { month: "JUIN", count: 200 },
+        ];
+        //data Tomates
+        const data1 = [
+            { month: "JAN", count: 0 },
+            { month: "FEV", count: 50 },
+            { month: "MAR", count: 160 },
+            { month: "AVR", count: 120},
+            { month: "MAI", count: 190 },
+            { month: "JUIN", count: 230 },
+        ];
+        //data crevettes
+        const data2 = [
+            { month: "JAN", count: 30 },
+            { month: "FEV", count: 90 },
+            { month: "MAR", count: 50 },
+            { month: "AVR", count: 180},
+            { month: "MAI", count: 110 },
+            { month: "JUIN", count: 190 },
+        ];
+
+
+
+        new Chart(
+            document.getElementById('myChart'),
+            {
+            type: 'line',
+            data: {
+                labels: data.map(row => row.month),
+                datasets: [
+                {
+                    data: data.map(row => row.count),
+                    tension: 0.3,
+                    pointRadius: 1.5,
+                    borderWidth: 1.5,
+                    borderColor: "#9258D0"
+                }, 
+                {
+                    data: data1.map(row => row.count),
+                    tension: 0.3,
+                    pointRadius: 1.5,
+                    borderWidth: 1.5,
+                    borderColor: "#1CAAF6"
+                },
+                {
+                    data: data2.map(row => row.count),
+                    tension: 0.3,
+                    pointRadius: 1.5,
+                    borderWidth: 1.5,
+                    borderColor: "#40EAAC"
+                }
+                ]
+            },
+
+            options:{
+                scales: {
+                    //hide horizontal gridlines
+                    y: {
+                        grid: {
+                            display: false
+                        }
+                    },
+                    //hide x-axis scale line 
+                     x: {
+                        border: {
+                        display: false,
+                        },
+                        ticks: {
+                            padding: 10,
+                        }
+                    }
+
+
+                },
+
+                //hide dataset labels and colors
+                 plugins:{
+                    legend: {
+                        display: false
+                    }
+                }
+            },
+            
+            }
+        );
+        })();
+    </script>
 </body>
 </html>

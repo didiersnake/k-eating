@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/chart.css">
+    <link rel="stylesheet" href="./css/hamburger.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,51 +19,87 @@
 </head>
 <body class="font-[Montserrat] font-medium text-gray-800">
     <!-- Navbar -->
-    <nav class="py-2 px-14 flex items-center justify-between">
-        <div class="flex flex-col items-center">
-            <div class="font-[Cookie] font-medium text-5xl text-[#21D0A9]">K'eating</div>
-            <p class="text-xs font-semibold text-gray-500 tracking-widest">Cuisinez sans compter</p>
-        </div>
-        <div class="flex items-center gap-14">
-            <h3 class="font-serif text-lg text-[#009EFA]">Tableau de bord</h3>
-            <div class="flex items-center gap-4">
-                <div><img class="w-8 h-8" src="./assets/settings_FILL0_wght400_GRAD0_opsz48.svg" alt="p"/></div>
-                <div><img class="w-12 h-12" src="./assets/account_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="" /></div>
+    <nav class="">
+        <div class="py-2 px-14 md:flex items-center justify-between hidden">
+            <div class="flex flex-col items-center">
+                <div class="font-[Cookie] font-medium text-5xl text-[#21D0A9]">K'eating</div>
+                <p class="text-xs font-semibold text-gray-500 tracking-widest">Cuisinez sans compter</p>
             </div>
+            <div class="flex items-center gap-14">
+                <h3 class="font-serif text-lg text-[#009EFA]">Tableau de bord</h3>
+                <div class="flex items-center gap-4">
+                    <div><img class="w-8 h-8" src="./assets/settings_FILL0_wght400_GRAD0_opsz48.svg" alt="p"/></div>
+                    <div><img class="w-12 h-12" src="./assets/account_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="" /></div>
+                </div>
+            </div>
+        </div>
+        <!-- On smaller screen  -->
+        <div class="md:hidden">
+
+                <!-- Hamburger menu -->
+                <div class="navbar">
+                    <div class="container nav-container">
+                        <input class="checkbox" type="checkbox" name="" id="" />
+                        <div class="hamburger-lines">
+                            <span class="line line1"></span>
+                            <span class="line line2"></span>
+                            <span class="line line3"></span>
+                        </div>
+
+                        <!-- logo -->
+                        <div class="flex flex-col items-center gap-0">
+                            <div class="font-[Cookie] font-medium text-3xl text-[#21D0A9]">K'eating</div>
+                            <p class="text-xs font-semibold text-gray-500 tracking-widest">Cuisinez sans compter</p>
+                        </div>
+                        
+                        <div class="menu-items h-screen bg-white">
+                            <li><a href="#">Acceuil</a></li>
+                            <li><a href="#">Marchand/Stock</a></li>
+                            <li><a href="#">Habilitation</a></li>
+                            <li><a href="#">Fournisseurs</a></li>
+                            <li><a href="#">Regionalisation</a></li>
+                            <li><a href="#">Reporting</a></li>
+                            <li><a href="#">Profil</a></li>
+                            <li><a href="#">Parametres</a></li>
+                            
+                        </div>
+                    </div>
+                </div>
         </div>
     </nav>
-    <div class="w-full flex bg-[#E7F9FB]">
+
+    <div class="w-full bg-[#E7F9FB] flex">
 
         <!-- Side Bar -->
-        <div class="bg-[#6082AF]">
+        <div class="bg-[#6082AF] md:block hidden">
             <div class="grid gap-2 bg-[#0152AD] text-gray-50 text-sm">
-                <a class="py-4 pl-14 capitalize font-normal tracking-wider border-b border-gray-400 active:bg-[#014DA3]" href="#">Acceuil</a>
-                <a class="py-4 px-14 capitalize font-normal tracking-wider border-b border-gray-400"  href="#">Marchand & Stock</a>
-                <a class="py-4 px-14 capitalize font-normal tracking-wider border-b border-gray-400"  href="#">Habilitation</a>
-                <a class="py-4 px-14 capitalize font-normal tracking-wider border-b border-gray-400"  href="#">Fournisseurs</a>
-                <a class="py-4 px-14 capitalize font-normal tracking-wider border-b border-gray-400"  href="#">Regionalisation</a>
-                <a class="py-4 px-14 capitalize font-normal tracking-wider border-b border-gray-400"  href="#">Reporting</a> 
+                <a class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400 active:bg-[#014DA3]" href="#">Acceuil</a>
+                <a class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400"  href="#">Marchand & Stock</a>
+                <a class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400"  href="#">Habilitation</a>
+                <a class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400"  href="#">Fournisseurs</a>
+                <a class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400"  href="#">Regionalisation</a>
+                <a class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400"  href="#">Reporting</a>
             </div>
         </div>
 
-        <div class="p-8">
+        <div class="w-full md:p-16 lg:p-8 p-8 mx-auto">
             <div class="w-full bg-[#925CCB] uppercase p-4 text-sm text-white items-start rounded"><p>Enregistrer un marchand Enregistrer </p></div>
 
             <!-- Tableau / Graph -->
-            <div class="grid grid-cols-3 my-10 gap-5">
+            <div class="grid lg:grid-cols-3 my-10 lg:gap-5 gap-8">
                 <div class="col-span-2">
                     <div class="uppercase p-1 text-xs text-gray-600 font-bold">Tendances de stock</div>
                     <hr class="mx-1 w-[5%] h-[1.5px] bg-[#A8D2E8]">
-                    <div class="pl-5 h-72 py-5 bg-white shadow rounded-sm">
+                    <div class="pl-5 lg:h-72 py-5 bg-white shadow rounded-sm">
                         <canvas id="myChart"></canvas>
                     </div>
                 </div>
-
+                <!-- Conic graph -->
                 <div class="">
                     <div class="uppercase p-1 text-xs text-gray-600 font-bold">Top sorties</div>
                     <hr class="mx-1 w-[10%] h-[1.5px] bg-[#A8D2E8]">
-                    <div class="h-72 flex flex-col gap-1 justify-center items-center bg-white shadow rounded-sm">
-                        <div class="flex items-center gap-12">
+                    <div class="h-72 lg:px-4 px-14 flex flex-col gap-1 justify-center items-center bg-white shadow rounded-sm">
+                        <div class="flex items-center lg:gap-12 md:gap-20 gap-14">
                             <div class="w-40 h-40 flex items-center justify-center rounded-full back">
                                 <div class="w-32 h-32 bg-white rounded-full"></div>
                             </div>
@@ -72,7 +109,7 @@
                                 <div class="flex items-center gap-3"> <div class="w-3 h-3 rounded-full bg-[#40EAAC]"></div> <p>26%</p> </div>
                             </div>
                         </div>
-                        <div class="w-full px-5 flex items-center justify-between text-xs text-gray-500 font-semibold">
+                        <div class="w-full flex items-center justify-between text-xs text-gray-500 font-semibold">
                             <div class="flex items-center gap-2"> <div class="w-3 h-3 rounded-full bg-[#1CAAF6]"></div> <p>Tomates</p> </div>
                             <div class="flex items-center gap-2"> <div class="w-3 h-3 rounded-full bg-[#9258D0]"></div> <p>Saucisse</p> </div>
                             <div class="flex items-center gap-2"> <div class="w-3 h-3 rounded-full bg-[#40EAAC]"></div> <p>Crevettes</p> </div>
@@ -82,26 +119,26 @@
             </div>
 
             <!-- Pourcentages  -->
-            <div class="w-full grid grid-cols-4 gap-4 text-xs">
+            <div class="w-full grid lg:grid-cols-4 md:grid-cols-2 lg:gap-4 gap-8 text-xs">
                 <div class="p-4 bg-white rounded-sm shadow">
                     <div class="uppercase font-semibold text-gray-600">Tomate</div>
                     <hr class="my-[5px] w-[15%] h-[3px] bg-[#A8D2E8]">
-                    <div class="px-14 pt-5 pb-10 text-5xl font-semibold text-gray-500">25%</div>
+                    <div class="text-center pt-5 pb-10 text-5xl font-semibold text-gray-500">25%</div>
                 </div>
                 <div class="p-4 bg-white rounded-sm shadow">
                     <div class="uppercase font-semibold text-gray-600">Crevette</div>
                     <hr class="my-[5px] w-[15%] h-[3px] bg-[#A8D2E8]">
-                    <div class="px-14 pt-5 pb-10 text-5xl font-semibold text-gray-500">33%</div>
+                    <div class="text-center pt-5 pb-10 text-5xl font-semibold text-gray-500">33%</div>
                 </div>
                 <div class="p-4 bg-white rounded-sm shadow">
                     <div class="uppercase font-semibold text-gray-600">Saucisse</div>
                     <hr class="my-[5px] w-[15%] h-[3px] bg-[#A8D2E8]">
-                    <div class="px-14 pt-5 pb-10 text-5xl font-semibold text-gray-500">45%</div>
+                    <div class="text-center pt-5 pb-10 text-5xl font-semibold text-gray-500">45%</div>
                 </div>
                 <div class="p-4 bg-white rounded-sm shadow">
                     <div class="uppercase font-semibold text-gray-600">Commande en cours</div>
                     <hr class="my-[5px] w-[15%] h-[3px] bg-[#A8D2E9]">
-                    <div class="px-14 pt-5 pb-10 text-5xl font-semibold text-gray-500">3%</div>
+                    <div class="text-center pt-5 pb-10 text-5xl font-semibold text-gray-500">3%</div>
                 </div>
             </div>            
         </div>

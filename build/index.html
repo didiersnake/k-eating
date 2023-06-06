@@ -54,7 +54,7 @@
                         
                         <div class="menu-items h-screen bg-white">
                             <li><a href="#">Acceuil</a></li>
-                            <li><a href="#">Marchand/Stock</a></li>
+                            <li><a href="marchand.html">Marchand/Stock</a></li>
                             <li><a href="#">Habilitation</a></li>
                             <li><a href="#">Fournisseurs</a></li>
                             <li><a href="#">Regionalisation</a></li>
@@ -74,7 +74,7 @@
         <div class="bg-[#6082AF] md:block hidden">
             <div class="grid gap-2 bg-[#0152AD] text-gray-50 text-sm">
                 <a class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400 active:bg-[#014DA3]" href="#">Acceuil</a>
-                <a class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400"  href="#">Marchand & Stock</a>
+                <a class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400"  href="marchand.html">Marchand & Stock</a>
                 <a class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400"  href="#">Habilitation</a>
                 <a class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400"  href="#">Fournisseurs</a>
                 <a class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400"  href="#">Regionalisation</a>
@@ -82,15 +82,15 @@
             </div>
         </div>
 
-        <div class="w-full md:p-16 lg:p-8 p-8 mx-auto">
-            <div class="w-full bg-[#925CCB] uppercase p-4 text-sm text-white items-start rounded"><p>Enregistrer un marchand Enregistrer </p></div>
+        <div class="w-full md:p-16 lg:p-8 p-4 mx-auto">
+            <div class="w-full bg-[#925CCB] uppercase p-4 text-sm text-white items-start rounded"><p>Enregistrer un marchand </p></div>
 
             <!-- Tableau / Graph -->
             <div class="grid lg:grid-cols-3 my-10 lg:gap-5 gap-8">
                 <div class="col-span-2">
                     <div class="uppercase p-1 text-xs text-gray-600 font-bold">Tendances de stock</div>
                     <hr class="mx-1 w-[5%] h-[1.5px] bg-[#A8D2E8]">
-                    <div class="pl-5 lg:h-72 py-5 bg-white shadow rounded-sm">
+                    <div class="mx-auto lg:h-72 py-5 bg-white shadow rounded-sm">
                         <canvas id="myChart"></canvas>
                     </div>
                 </div>
@@ -98,8 +98,8 @@
                 <div class="">
                     <div class="uppercase p-1 text-xs text-gray-600 font-bold">Top sorties</div>
                     <hr class="mx-1 w-[10%] h-[1.5px] bg-[#A8D2E8]">
-                    <div class="h-72 lg:px-4 px-14 flex flex-col gap-1 justify-center items-center bg-white shadow rounded-sm">
-                        <div class="flex items-center lg:gap-12 md:gap-20 gap-14">
+                    <div class="h-72 lg:px-4 mx-auto px-8 flex flex-col gap-1 justify-center items-center bg-white shadow rounded-sm">
+                        <div class="flex items-center lg:gap-12 md:gap-20 gap-10">
                             <div class="w-40 h-40 flex items-center justify-center rounded-full back">
                                 <div class="w-32 h-32 bg-white rounded-full"></div>
                             </div>

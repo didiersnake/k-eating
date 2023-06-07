@@ -53,14 +53,46 @@
                         </div>
                         
                         <div class="menu-items h-screen bg-white">
-                            <li><a href="#">Acceuil</a></li>
-                            <li><a href="marchand.html">Marchand/Stock</a></li>
-                            <li><a href="#">Habilitation</a></li>
-                            <li><a href="#">Fournisseurs</a></li>
-                            <li><a href="#">Regionalisation</a></li>
-                            <li><a href="#">Reporting</a></li>
-                            <li><a href="#">Profil</a></li>
-                            <li><a href="#">Parametres</a></li>
+                            <a href="#">Acceuil</a>
+                            <div class="dropdown-btn" href="#"><a>Marchand/Stock</a></div>
+                            <div class="mx-auto w-full hidden">
+                                <div class="dropdown-btn" href="#"><a>Stock</a></div>
+                                    <div class="mx-auto w-full hidden">
+                                        <div class="dropdown-btn" href="#"><a>Cal Produits</a></div>
+                                        <div class="mx-auto w-full hidden">
+                                            <a class="p-2" href="#">Produits</a>
+                                        </div>
+                                    </div>
+                                <div class="dropdown-btn" href="#"><a>Point de Vente</a></div>
+                                    <div class="mx-auto w-full hidden">
+                                        <a class="p-2" href="#">Menus</a>
+                                    </div>
+                                <div class="dropdown-btn" href="#"><a>Configs</a></div>
+                                <div class="mx-auto w-full hidden">
+                                    <div class="dropdown-btn" href="#"><a>Alertes</a></div>
+                                    <div class="mx-auto w-full hidden">
+                                        <a class="p-2" href="#">Approvisionnement</a>
+                                        <a class="p-2" href="#">Gaspillage</a>
+                                    </div>
+                                    <a class="p-2" href="#">Seuils</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-btn" href="#"><a>Habilitation</a></div>
+                            <div class="mx-auto w-full hidden">
+                                <a class="p-2" href="#">Roles</a>
+                                <a class="p-2" href="#">Privileges</a>
+                                <a class="p-2" href="#">Utilisateur</a>
+                            </div>
+                            <a href="#">Fournisseurs</a>
+                            <div class="dropdown-btn" href="#"><a>Regionalisation</a></div>
+                            <div class="mx-auto w-full hidden">
+                                <a class="p-2" href="#">Region</a>
+                                <a class="p-2" href="#">Pays</a>
+                                <a class="p-2" href="#">Villes</a>
+                            </div>
+                            <a href="#">Reporting</a>
+                            <a href="#">Profil</a>
+                            <a href="#">Parametres</a>
                             
                         </div>
                     </div>
@@ -72,12 +104,44 @@
 
         <!-- Side Bar -->
         <div class="bg-[#6082AF] md:block hidden">
-            <div class="grid gap-2 bg-[#0152AD] text-gray-50 text-sm">
+            <div class="grid bg-[#0152AD] text-gray-50 text-sm">
                 <a class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400 active:bg-[#014DA3]" href="#">Acceuil</a>
-                <a class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400"  href="marchand.html">Marchand & Stock</a>
-                <a class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400"  href="#">Habilitation</a>
+                <div class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400 dropdown-btn">Marchand & Stock</div>
+                <div class="dropdown-container mx-auto w-full px-10">
+                    <div class="p-2 dropdown-btn">Stock</div>
+                    <div class="dropdown-container mx-auto w-full px-10">
+                        <div class="p-2 dropdown-btn">Cal_Produit</div>
+                        <div class="dropdown-container mx-auto w-full px-10">
+                            <a class="p-2" href="#">Produits</a>
+                        </div>
+                    </div>
+                    <div class="p-2 dropdown-btn">Point de vente</div>
+                        <div class="dropdown-container mx-auto w-full px-10">
+                            <a class="p-2" href="#">Menus</a>
+                        </div>
+                    <div class="p-2 dropdown-btn">Configs</div>
+                    <div class="dropdown-container mx-auto w-full px-10">
+                        <div class="p-2 dropdown-btn">Alertes</div>
+                        <div class="dropdown-container mx-auto w-full px-10">
+                            <a class="p-2" href="#">Approvisionnement</a>
+                            <a class="p-2" href="#">Gaspillage</a>
+                        </div>
+                        <a class="p-2" href="#">Seuils</a>
+                    </div>
+                </div>
+                <div class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400 dropdown-btn"> Habilitation</div>
+                <div class="dropdown-container w-full px-10">
+                    <a class="p-2" href="#">Roles</a>
+                    <a class="p-2" href="#">Privileges</a>
+                    <a class="p-2" href="#">Utilisateur</a>
+                </div>
                 <a class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400"  href="#">Fournisseurs</a>
-                <a class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400"  href="#">Regionalisation</a>
+                <div class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400 dropdown-btn">Regionalisation</div>
+                <div class="dropdown-container mx-auto w-full px-10">
+                    <a class="p-2" href="#">Region</a>
+                    <a class="p-2" href="#">Pays</a>
+                    <a class="p-2" href="#">Villes</a>
+                </div>
                 <a class="py-4 lg:px-14 px-12 capitalize font-normal tracking-wider border-b border-gray-400"  href="#">Reporting</a>
             </div>
         </div>
@@ -238,6 +302,22 @@
             }
         );
         })();
+    </script>
+    <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+            } else {
+            dropdownContent.style.display = "block";
+            }
+        });
+        }
     </script>
 </body>
 </html>
